@@ -26,7 +26,7 @@ st.write("**bold text ** *italics text*")
 
 
 ###Displaying data
-
+st.write("# Displaying Data")
 ##displaying a dataframe
 st.dataframe(diamonds)
 
@@ -40,7 +40,7 @@ col_select = st.multiselect("Columns",col_names, default = col_names)
 
 
 ###Plotting
-
+st.write("# Plotting")
 ##display figures
 fig,ax = plt.subplots() #must create a subplot
 ax = sns.barplot(x = diamonds["cut"].unique(), y = diamonds["cut"].value_counts())
@@ -52,6 +52,7 @@ st.pyplot(fig)
 
 
 ##display map data
+st.write("## plotting geographical data")
 st.map(housing, zoom = 4.5)
 
 ###Machine Learning
@@ -67,28 +68,26 @@ def get_user_input():
                               diamonds["carat"].min(),
                               diamonds["carat"].max(),
                               diamonds["carat"].mean())
-    x = st.sidebar.slider("x",
-                          diamonds["x"].min(),
-                          diamonds["x"].max(),
-                          diamonds["x"].mean())
-    y = st.sidebar.slider("y",
-                          diamonds["y"].min(),
-                          diamonds["y"].max(),
-                          diamonds["y"].mean())
-    z = st.sidebar.slider("z",
-                          diamonds["z"].min(),
-                          diamonds["z"].max(),
-                          diamonds["z"].mean())
+#### we need to prompt user input for x,y and z just like we did for carat
+#### for this we want a slider on the sidebar
+#### st.sidebar.slider("NAME", START_VALUE, END_VALUE, DEFAULT_VALUE)
     features = pd.DataFrame({"carat":carat,
                              "x":x,"y":y,"z":z}, index = [0])
     return features
 
 input_df = get_user_input() #get user input from sidebar
 
-prediction = ml_model.predict(input_df)#get predicitions
+##TRY IT YOURSELF
+#get predicitions for the user_input
 
 st.subheader("Prediction")
-st.write("Your diamond is worth: $",prediction[0], )
+
+##TRY IT YOURSELF
+#display the predicitions with st.write, bonus karma if you don't just dump a number
+
+
+
+###advanced uploads (may not be covered in the workshop, tutorial available)
 
 #image upload?
 
