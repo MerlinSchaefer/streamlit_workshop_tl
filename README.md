@@ -9,5 +9,7 @@ We will code in the code_along_exercises.py and use the datasets and model.pkl w
 The db_stocks is just a quick (but slow loading..) example, I will provide more within the workshop. 
 The model_train.py is just the script that trains the model. You won't need it, unless you want to make a better model for some reason.
 
+Please note that the machine learning model is not optimal and the model_train.py is not a good example of how to train a model, it was just created to showcase streamlit machine learning applications, not actual predicitions.
+
 
 After the workshop is finished I will upload a full version of the code.
